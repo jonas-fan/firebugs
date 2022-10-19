@@ -14,6 +14,6 @@ RUN yum update -y \
         glibc-debuginfo \
     && yum clean all
 
-RUN cd /workspace && make
+RUN cd /workspace && rm -rf .git && make
 
 WORKDIR /workspace/output
