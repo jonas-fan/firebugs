@@ -9,7 +9,7 @@ Segmentation fault (core dumped)
 
 Execute the problematic program with debug information by [gdb](https://man7.org/linux/man-pages/man1/gdb.1.html).
 
-```c
+```bash
 $ gdb -q --args ./recursive.debug 
 Reading symbols from ./recursive.debug...done.
 
@@ -23,7 +23,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 The function `countdown` has been called recursively more than `80000` times.
 
-```c
+```bash
 (gdb) set pagination off
 
 (gdb) bt

@@ -25,7 +25,7 @@ __GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
 
 The stack shows that something goes wrong in the frame `5`.
 
-```c
+```bash
 (gdb) bt
 #0  __GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
 #1  0x00007f5cce79de05 in __GI_abort () at abort.c:79
@@ -38,7 +38,7 @@ The stack shows that something goes wrong in the frame `5`.
 
 Switch to the frame `5` and look into the source.
 
-```c
+```bash
 (gdb) frame 5
 #5  0x000000000040061e in free_all (addrs=0x7ffd0111bec0, len=4) at /workspace/code/doublefree.c:11
 11              free(addrs[i]);
@@ -58,7 +58,7 @@ Switch to the frame `5` and look into the source.
 
 The address `0x9f52c0` are duplicated in the array, causing a double-free.
 
-```c
+```bash
 (gdb) p addrs
 $1 = (void **) 0x7ffd0111bec0
 

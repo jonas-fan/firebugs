@@ -9,7 +9,7 @@ $ ./busy
 
 Execute the problematic program with debug information by [gdb](https://man7.org/linux/man-pages/man1/gdb.1.html).
 
-```c
+```bash
 $ gdb -q --args ./busy.debug
 Reading symbols from ./busy.debug...done.
 (gdb) r
@@ -22,7 +22,7 @@ dontstop () at /workspace/code/busy.c:5
 
 Find out where we are.
 
-```c
+```bash
 (gdb) bt
 #0  dontstop () at /workspace/code/busy.c:5
 #1  0x000000000040056e in main (argc=1, argv=0x7ffc771da058) at /workspace/code/busy.c:10
@@ -30,7 +30,7 @@ Find out where we are.
 
 Show us the source.
 
-```c
+```bash
 (gdb) list dontstop
 1       void dontstop(void)
 2       {

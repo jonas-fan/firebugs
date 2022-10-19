@@ -9,7 +9,7 @@ Segmentation fault (core dumped)
 
 Execute the problematic program with debug information by [gdb](https://man7.org/linux/man-pages/man1/gdb.1.html).
 
-```c
+```bash
 $ gdb -q --args ./badptr.debug 
 Reading symbols from ./badptr.debug...done.
 
@@ -23,7 +23,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 The variable `ptr` is an integer pointer that points to an address `0xdeadbeef`.
 
-```c
+```bash
 (gdb) ptype ptr
 type = int *
 

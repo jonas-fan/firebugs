@@ -25,7 +25,7 @@ Thread 1 "deadlock.debug" received signal SIGINT, Interrupt.
 
 Looks like there are two threads (PID `80` and `81`) waiting for a lock.
 
-```c
+```bash
 (gdb) set print pretty on
 
 (gdb) info threads
@@ -38,7 +38,7 @@ Looks like there are two threads (PID `80` and `81`) waiting for a lock.
 
 Look into one of them. For example, the thread `80`.
 
-```c
+```bash
 (gdb) thread 2
 [Switching to thread 2 (Thread 0x7fdcfde64700 (LWP 80))]
 #0  __lll_lock_wait () at ../sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:103
@@ -54,7 +54,7 @@ Look into one of them. For example, the thread `80`.
 
 The thread `80` is waiting for a lock that is being hold by the thread `81`.
 
-```c
+```bash
 (gdb) p *((pthread_mutex_t *)0x6010c0)
 $1 = {
   __data = {
@@ -77,7 +77,7 @@ $1 = {
 
 And the thread `81` is waiting for a lock that is being hold by the thread `80`.
 
-```c
+```bash
 (gdb) thread 3
 [Switching to thread 3 (Thread 0x7fdcfd663700 (LWP 81))]
 #0  __lll_lock_wait () at ../sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:103

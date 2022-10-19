@@ -68,7 +68,7 @@ $ strace -c -- sleep 3
 Then, you may be wondering the files in which it's interesed.
 
 ```bash
-strace -f -T -ttt -- sleep 3 2>&1 | grep openat | (head; tail)
+$ strace -f -T -ttt -- sleep 3 2>&1 | grep openat | (head; tail)
 1665726004.876083 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3 <0.000448>
 1665726004.882655 openat(AT_FDCWD, "/lib64/librt.so.1", O_RDONLY|O_CLOEXEC) = 3 <0.003752>
 1665726004.893572 openat(AT_FDCWD, "/lib64/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3 <0.000381>
